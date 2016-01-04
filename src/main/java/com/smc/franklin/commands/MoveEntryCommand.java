@@ -10,13 +10,13 @@ import com.smc.franklin.commands.NodeLocator.Located;
 import com.smc.franklin.dao.Entry;
 import com.smc.franklin.dao.Requirement;
 import com.smc.franklin.dao.enumeration.MoveDirection;
-import com.smc.franklin.dao.repository.PlanRepository;
+import com.smc.franklin.dao.repository.RequirementRepository;
 import com.smc.franklin.view.Planner;
 
 @Component
 public class MoveEntryCommand {
 
-	@Autowired private PlanRepository planRepository;
+	@Autowired private RequirementRepository planRepository;
 	
 	/**
 	 * 

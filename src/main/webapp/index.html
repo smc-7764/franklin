@@ -47,18 +47,13 @@
 	height: 50px;
 }
 
-.neon {
-    color: #0000FF;        
-    text-shadow: 0 0 10px #ffffff, 0 0 20px #ffffff, 0 0 30px #ffffff, 0 0 40px #668cd9, 120px 0 70px #668cd9, 140px 0 80px #668cd9;
-
-	font-size: 14pt;
+.neon-branding {
 	position: absolute;
-	font-weight: bold;
 	top: 25px;
 	left:15px;	
 	font-style:italic;
-	opacity: 0.5;
 }
+
 .plan-image {
 	padding:3px;
 	height:70px;
@@ -70,7 +65,7 @@
 </style>
 <div class="runner" ng-controller="AppCtrl">
 
-	<div style="position:absolute;right:110px; top:10px;" ng-if="userModel.authenticated()">
+	<div style="position:absolute;right:110px; top:10px;" ng-if="userFactory.authenticated()">
         <ul class="nav navbar-nav">
  	        <li>
 	         <a ng-if="dd" ng-click="toggle()" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" >{{userModel.firstName}} {{userModel.lastName}}  <span class="dropup"><span class="caret"></span></span></a>
@@ -83,8 +78,8 @@
 	         </li>
          </ul>
 	</div>
-	<div class="neon" ng-click="userModel.home()">PLANNATION</div>
-	<div class="plan-image"></div>
+	<div class="neon neon-branding" ng-click="home()">PLANNATION</div>
+	<div class="plan-image" ng-click="home()"></div>
 </div>
 <div ng-view></div>
 </body>

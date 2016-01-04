@@ -1,11 +1,10 @@
 package com.smc.franklin.dao.repository;
 
-import java.util.List;
-
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
 
 import com.smc.franklin.dao.User;
+import com.smc.franklin.view.UserModel;
 
 /**
  * 
@@ -14,6 +13,15 @@ import com.smc.franklin.dao.User;
  */
 public interface UserRepository extends MongoRepository<User, String> {
 
+	
+	/**
+	 * 
+	 * @param userName
+	 * @return a user record by userName
+	 */
+	@Query("{id : '?0'}")
+	public UserModel findModelById(String userId);
+	
 	/**
 	 * 
 	 * @param userName

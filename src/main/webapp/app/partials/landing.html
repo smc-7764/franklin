@@ -1,25 +1,49 @@
 <div class="container-fluid">
-	<div class="row col-md-10">
-		<h3>{{landing}}</h3>
-		Create a plan <input ng-model="creator.name"></input>
-		<button type="submit" class="btn btn-primary" ng-submit="createPlan()">Create</button>
+
+	<div class="row" style="margin-top:20px;">
+	<span class="col-sm-6 col-md-6 col-lg-6 neon">
+		My Plannation Space
+	</span>
 	</div>
-	
-	<div class="row col-md-10">
-		<div class="col-md-3">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h1 class="panel-title" ng-click="toggler.requirements = !toggler.requirements">Requirements</h1>
+        </div>
+
+        <div class="panel-body" ng-if="toggler.requirements">
+        	<div class="row">
+				<span class="col-sm-6 col-md-6 col-lg-6">
+					<H4>Start a new Requirements Document</H4>
+					<form ng-submit="createPlan()">
+						<input ng-model="creator.name"
+							placeholder="Requirement Document Name" style="width:300px;"></input>
+						<button type="submit" class="btn btn-primary">Create</button>
+					</form>
+				</span>
+			</div>
+			
+		<div class="row">
+		<div class="col-sm-7 col-md-7 col-lg-7">
+		<H4>Requirements</H4>
 			<table st-safe-src="rowCollection" st-table="displayCollection"
-				class="table table-striped smart lean" ng-if="displayCollection && displayCollection.length > 1">
+				class="table table-striped" ng-if="displayCollection && displayCollection.length > 1">
 				<thead>
 					<tr>
 						<th st-sort="name" st-sort-default="name"><span>Name</span></th>
+						<th st-sort="creator"><span>Creator</span></th>
+						<th st-sort="updator"><span>Updator</span></th>
+						<th st-sort="lastUpdated"><span>Last Updated</span></th>
 					</tr>
 				</thead>
 				<tbody>
-					<tr ng-repeat="plan in displayCollection track by $index">
-						<td ng-click="viewPlan(plan.id)">{{plan.name}}</td>
+					<tr ng-repeat="req in rowCollection track by $index">
+						<td ng-click="viewPlan(plan.id)">{{req.name}}</td>
+						<td>{{req.creator.screenName}}</td>
+						<td>{{req.lastChangedBy.screenName}}</td>
+						<td>{{req.lastChanged |  date:"MM/dd/yyyy 'at' h:mma"}}</td>
 					</tr>
 				</tbody>
-				<tfoot>
+				<tfoot ng-if="displayCollection.length > 5">
 					<tr>
 						<td colspan="1" class="text-center">
 							<div st-pagination="" st-items-by-page="5" st-displayed-pages="3"></div>
@@ -31,13 +55,27 @@
 					<thead>
 					<tr>
 						<th><span>Name</span></th>
+						<th><span>Created ByX</span></th>
 					</tr>
 					</thead>
 					<tbody>
-						<tr><td>displayCollection.name</td></tr>
+						<tr>
+						<td>{{displayCollection[0].name}}</td>
+						<td>{{displayCollection[0].creator.screenName}}</td>
+						<td>{{displayCollection[0].lastChangedBy.screenName}}</td>
+						<td>{{displayCollection[0].lastChanged |  date:"MM/dd/yyyy 'at' h:mma"}}</td>
+						</tr>
 					</tbody>
 			</table>
 		</div>
-			<a href="#/plans">Plans</a> <a href="#/reports">Reports</a><br />
 	</div>
+        
+        </div>
+
+    </div>
+
+	
+	<!-- 
+	<a href="#/requirements">Plans</a> <a href="#/reports">Reports</a><br />
+	 -->
 </div>

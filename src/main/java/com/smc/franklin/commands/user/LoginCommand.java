@@ -9,6 +9,7 @@ import com.smc.franklin.dao.repository.UserRepository;
 import com.smc.franklin.response.ResponseMessage;
 import com.smc.franklin.response.ResponseSeverity;
 import com.smc.franklin.response.ResponseToken;
+import com.smc.franklin.view.UserModel;
 
 /**
  * 
@@ -20,15 +21,25 @@ public class LoginCommand {
 
 	@Autowired UserRepository userRepository;
 	
-	public ResponseToken<User> execute(String account, String credential) {
-		ResponseToken<User> loginToken = new ResponseToken<User>();
+	public ResponseToken<UserModel> execute(String account, String credential) {
+		ResponseToken<UserModel> loginToken = new ResponseToken<UserModel>();
 		User user = userRepository.login(account,credential);
+		
+		
 		if ( user == null ) {
 			ResponseMessage message = new ResponseMessage(ResponseSeverity.ERROR);
 			message.setBundleKey("user.account-not-found");
 			loginToken.add(message);
 		} else {
-			loginToken.setPayload(user);
+			UserModel userModel = new UserModel();
+			userModel.setEmail(user.getEmail());
+			userModel.setId(user.getId());
+			userModel.setFirstName(user.getFirstName());
+			userModel.setLastName(user.getLastName());
+			userModel.setScreenName(user.getScreenName());
+			userModel.setUserName(user.getUserName());
+			userModel.setLastChanged(user.getLastChanged());
+			loginToken.setPayload(userModel);
 		}
 		MessageRoller.roll(loginToken);
 		return loginToken;

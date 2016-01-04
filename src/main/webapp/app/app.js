@@ -9,7 +9,7 @@ franklin.config([ '$routeProvider', function($routeProvider) {
 		controller : 'PlannerCtrl',
 		resolve: {
 			plan: ['$http','$route', function($http, $route) {
-				return $http.get('plans/'+$route.current.params["planId"]).then(function(response) {
+				return $http.get('requirements/'+$route.current.params["planId"]).then(function(response) {
 					return response.data
 				})
 			}]
@@ -28,45 +28,66 @@ franklin.config([ '$routeProvider', function($routeProvider) {
 	});
 } ]);
 
-franklin.factory('userModel', ['$location',function($location) {
+franklin.factory('userFactory', ['$location',function($location) {
     
-    var model = { }; 
- 
-    model.update = function(user) {
-    	 model.id = user.id;
-         model.firstName = user.firstName;
-         model.lastName = user.lastName;
-         model.userName = user.userName;
-         model.email = user.email;
-         //$rootScope.user = model;
+    var factory = { 
+    		model: {}
+    }; 
+
+    factory.update = function(userModel) {
+    	factory.model = userModel;
     } 
-    model.authenticated = function() {
-       return model.id != null
+    factory.authenticated = function() {
+       return factory.model.id != null
     }
 
-    model.logout = function() {
-    	model = { }; //reset
+    factory.logout = function() {
+    	factory.model = {}; //reset
     	$location.path('login');
     }
     
-    return model;
+    return factory;
 }]);
 
 /*
  * @scope - current scope
  * @summaries - what happened
  */
-function err(scope, summaries) {
-	if ( !summaries ) {
-		summaries = 'something bad happened. contact application development for more information';
+function err(scope, text) {
+	var messages = [];
+	if ( !text ) {
+		 messages[0] = 'something bad happened. contact application development for more information';
 	}
-	var out = '';
-	for ( var i=0; i < summaries.length; i++) {
-		out = summaries[i] + out;
-	}
+
 	scope.response = {
 			hint: 'alert-danger',
-			summary: out
+			messages: messages
+	};
+}
+
+/*
+ * @scope - current scope
+ * @summaries - what happened
+ */
+function errs(scope, issues) {
+	var text = null;
+	for ( var i = 0; i < issues.length; i++) {
+		if ( text == null ) {
+			text = issues[i];
+		} else {
+			text = text + '<br/>' + issues[i];
+		}		
+	}
+	var messages = [];
+	if ( !issues || issues.length == 0 ) {	
+		messages[0] = 'something bad happened. contact application development for more information';
+	} else {
+		messages = issues;
+	}
+
+	scope.response = {
+			hint: 'alert-danger',
+			messages: messages
 	};
 }
 
@@ -74,10 +95,16 @@ function err(scope, summaries) {
  * @scope - current scope
  * @summary - what happened
  */
-function ok(scope, summary) {
+function ok(scope, text) {
+	var messages = [];
+	if ( !text ) {
+		 messages[0] = 'Success!';
+	} else {
+		 messages[0] = text;
+	}
 	scope.response = {
 			hint: 'alert-success',
-			summary: summary
+			messages: messages
 	};
 }
 

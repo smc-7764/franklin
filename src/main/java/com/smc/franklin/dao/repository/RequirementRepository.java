@@ -9,6 +9,6 @@ import com.smc.franklin.dao.Requirement;
  * @author chq-seanc
  *
  */
-public interface PlanRepository extends MongoRepository<Requirement, String> {
 
+public interface RequirementRepository extends MongoRepository<Requirement, String> {
 }

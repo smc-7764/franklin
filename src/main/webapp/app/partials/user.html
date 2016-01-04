@@ -3,14 +3,26 @@
 	<a class="close" ng-click="purgeResponse()">X</a> {{response.summary}}
 </div>
  -->
+
 <div class="container-fluid form-group" style="width:60%; margin-top:30px;">
 		<div class="row" style="margin-bottom:30px;">
-			<span class="col-sm-8 col-md-8 col-lg-8" ng-if="!user.id">
+			<span class="col-sm-12 col-md-12 col-lg-12" ng-if="!user.id">
 				Hi, Thank you for trying out Plannation!
 			</span>
 			<span class="col-sm-8 col-md-8 col-lg-8" ng-if="user.id != null">
 				Hi, {{user.firstName}}.  It's a great day for planning!
 			</span>
+			<span class="col-sm-4 col-md-4 col-lg-4 text-soft" ng-if="user.id != null">
+				Last Changed {{user.lastChanged |  date:"MM/dd/yyyy 'at' h:mma"}}
+			</span>
+		</div>
+		<div class="row">
+			<div class="{{response.hint}} alert-position col-sm-12 col-md-12 col-lg-12" ng-if="response != null">
+					<a class="close" ng-click="purgeResponse()">X</a> 
+					<div ng-repeat = "message in response.messages">
+						{{message}}
+					</div>
+			</div>
 		</div>
 		<div class="row">
 		<span class="col-sm-4 col-md-4 col-lg-4">
@@ -41,14 +53,26 @@
 		</span>
 		</div>
 		<div class="row">
-			<div class="col-sm-10 col-md-10 col-lg-10"></div>
-			<div class="col-sm-2 col-md-2 col-lg-2" style="margin-top:10px;"> 
-				<button class="btn btn-primary form-control" ng-click="saveUser('CREATE')" ng-if="!user.id" >Create</button>
+		<span class="col-sm-4 col-md-4 col-lg-4">
+			<label>Screen Name</label>
+			<input class="form-control" type="text" ng-model="user.screenName"></input>
+		</span>
+		<span class="col-sm-4 col-md-4 col-lg-4">
+		<div class="checkbox">
+		  <label><input type="checkbox" value="" ng-model="user.emailNotifications">Email Notifications</label>
+		</div>
+		</span>
+		<span class="col-sm-4 col-md-4 col-lg-4"></span>
+		</div>
+		<div class="row">
+			<div class="col-sm-8 col-md-8 col-lg-8">					
 			</div>
-			<div class="col-sm-2 col-md-2 col-lg-2" style="margin-top:10px;">
+			<div class="col-sm-4 col-md-4 col-lg-4" style="margin-top:10px;"> 
+				<button class="btn btn-primary form-control" ng-click="saveUser('CREATE')" ng-if="!user.id" >Create</button>
 				<button class="btn btn-primary form-control" ng-click="saveUser('UPDATE')" ng-if="user.id != null">Update</button>
 			</div>
 		</div>
+		<!-- 
 		<div ng-if="user.id != null">
 			<div class="row col-md-10">
 			<table st-safe-src="rowCollection" st-table="displayCollection"
@@ -72,4 +96,5 @@
 				</tfoot>
 			</table>
 		</div>
+		-->
 </div>

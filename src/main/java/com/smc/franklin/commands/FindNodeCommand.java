@@ -5,14 +5,14 @@ import org.springframework.stereotype.Component;
 
 import com.smc.franklin.dao.Entry;
 import com.smc.franklin.dao.Requirement;
-import com.smc.franklin.dao.repository.PlanRepository;
+import com.smc.franklin.dao.repository.RequirementRepository;
 import com.smc.franklin.view.Planner;
 import com.smc.franklin.view.PlannerNode;
 
 @Component
 public class FindNodeCommand {
 
-	@Autowired private PlanRepository planRepository;
+	@Autowired private RequirementRepository planRepository;
 	@Autowired private ConstructPlannerCommand constructPlannerCommand;
 	/**
 	 * 

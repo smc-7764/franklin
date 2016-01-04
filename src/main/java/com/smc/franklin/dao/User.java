@@ -19,6 +19,8 @@ public class User {
 	//the encrypted credential confirmation
 	private String confirmation;
 	private Date lastChanged;
+	private String screenName;
+	
 	private Boolean emailNotifications;
 	/**
 	 * @return the id
@@ -127,6 +129,13 @@ public class User {
 	 */
 	public void setEmailNotifications(Boolean emailNotifications) {
 		this.emailNotifications = emailNotifications;
+	}
+	
+	public String getScreenName() {
+		return screenName;
+	}
+	public void setScreenName(String screenname) {
+		this.screenName = screenname;
 	}
 }
 

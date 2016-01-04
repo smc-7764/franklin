@@ -2,17 +2,20 @@ package com.smc.franklin.commands;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.smc.franklin.dao.Entry;
 import com.smc.franklin.dao.Requirement;
 import com.smc.franklin.dao.enumeration.MoveDirection;
+import com.smc.franklin.dao.repository.UserRepository;
 import com.smc.franklin.view.Planner;
 import com.smc.franklin.view.PlannerNode;
 
 @Component
 public class ConstructPlannerCommand {
 
+	@Autowired private UserRepository userRepository;
 	/**
 	 * 
 	 * @param planId
@@ -20,12 +23,14 @@ public class ConstructPlannerCommand {
 	 * @param direction
 	 * @return the rejiggered listing
 	 */
-	public Planner execute(Requirement plan) {
+	public Planner execute(Requirement requirement) {
 		Planner view = new Planner();
-		view.setName(plan.getName());
-		view.setPlanId(plan.getId());
+		view.setName(requirement.getName());
+		view.setPlanId(requirement.getId());
+		view.setCreator(userRepository.findModelById(requirement.getCreatorUserId()));
+
 	
-		rollEntries(view,plan.getEntries(),1, null);
+		rollEntries(view,requirement.getEntries(),1, null);
 		
 		return view;
 	}

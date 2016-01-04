@@ -1,6 +1,8 @@
 package com.smc.franklin.dao;
 
+
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.validation.constraints.NotNull;
@@ -16,7 +18,14 @@ public class Requirement {
 	@NotNull
 	@Indexed private String name;
 	@NotNull
-	@Indexed private String userId;
+	@Indexed private String creatorUserId;
+	
+	@NotNull
+	@Indexed private Date lastChangedDate;
+	
+	@NotNull
+	@Indexed private String lastChangedByUserId;
+	
 	private List<Entry> entries = new ArrayList<Entry>();
 	
 	/**
@@ -55,17 +64,42 @@ public class Requirement {
 	public void setName(String name) {
 		this.name = name;
 	}
+
 	/**
-	 * @return the userId
+	 * @return the creatorUserId
 	 */
-	public String getUserId() {
-		return userId;
+	public String getCreatorUserId() {
+		return creatorUserId;
 	}
 	/**
-	 * @param userId the userId to set
+	 * @param creatorUserId the creatorUserId to set
 	 */
-	public void setUserId(String userId) {
-		this.userId = userId;
+	public void setCreatorUserId(String creatorUserId) {
+		this.creatorUserId = creatorUserId;
+	}
+	/**
+	 * @return the lastChangedDate
+	 */
+	public Date getLastChangedDate() {
+		return lastChangedDate;
+	}
+	/**
+	 * @param lastChangedDate the lastChangedDate to set
+	 */
+	public void setLastChangedDate(Date lastChangedDate) {
+		this.lastChangedDate = lastChangedDate;
+	}
+	/**
+	 * @return the lastChangedByUserId
+	 */
+	public String getLastChangedByUserId() {
+		return lastChangedByUserId;
+	}
+	/**
+	 * @param lastChangedByUserId the lastChangedByUserId to set
+	 */
+	public void setLastChangedByUserId(String lastChangedByUserId) {
+		this.lastChangedByUserId = lastChangedByUserId;
 	}
 }
 

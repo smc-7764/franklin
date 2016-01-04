@@ -1,33 +1,36 @@
-controllers.controller('UserCtrl', ['$scope','$http','userModel',
- function($scope, $http, userModel) {
-	$scope.um = userModel;  
+controllers.controller('UserCtrl', ['$scope','$http','userFactory',
+ function($scope, $http, userFactory) {
+ $scope.um = userFactory;  
   $scope.user = {};
-  if ( userModel.authenticated() ) {
-	  $scope.user.firstName = userModel.firstName;
-	  $scope.user.lastName = userModel.lastName;
-	  $scope.user.email = userModel.email;
-	  $scope.user.userName = userModel.userName;
-	  $scope.user.credential = userModel.credential;
-	  $scope.user.confirmation = userModel.confirmation;
+  if ( userFactory.authenticated() ) {
+	  $scope.user.firstName = userFactory.firstName;
+	  $scope.user.lastName = userFactory.lastName;
+	  $scope.user.email = userFactory.email;
+	  $scope.user.userName = userFactory.userName;
+	  $scope.user.credential = userFactory.credential;
+	  $scope.user.confirmation = userFactory.confirmation;
   }
 
   
   $scope.plans = {};
 
   $scope.saveUser = function(action) {
-	  
-	if ( !$scope.user.userName ) {	
-		err($scope, 'First name is required');
-		return;
+	 
+	 var issues = [];
+	 
+	if ( !$scope.user.firstName ) {	
+		issues.push( 'First name is required');
 	}
 	  
 	if ( !$scope.user.userName ) {	
-		err($scope, 'Username is required');
-		return;
+		issues.push( 'Username is required');
 	}
 	if ( $scope.user.credential != $scope.user.confirmation ) {
-		err($scope, 'Passwords are not the same');
+		issues.push( 'Passwords are not the same');
 		$scope.user.confirmation = null;
+	}
+	if ( issues.length > 0 ) {
+		errs($scope,issues);
 		return;
 	}
 	var url = 'users/create';
@@ -47,6 +50,7 @@ controllers.controller('UserCtrl', ['$scope','$http','userModel',
 			$scope.user = response.data.payload;
 			ok($scope, preface + ' user ' + response.data.payload.userName + '; Id: ' + response.data.payload.id );
 			
+			/*
 			$http.get('plans').success(function(data) {
 				$scope.plans = data;
 				$scope.rowCollection = [];
@@ -58,6 +62,7 @@ controllers.controller('UserCtrl', ['$scope','$http','userModel',
 					});
 				}
 			});
+			*/
 			
 		} else {
 			$scope.response = response.data;

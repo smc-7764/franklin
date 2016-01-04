@@ -10,7 +10,7 @@ controllers.controller('PlannerCtrl', ['$scope','$http','plan',
 	var error = function(response) {
 		alert('error! ' + response.status);
 	}
-	var url ='/plans/create/' + $scope.plan.planId + '/entry/'+ coordinate
+	var url ='/requirements/create/' + $scope.plan.planId + '/entry/'+ coordinate
 	$http.post(url, {}).then(success, error);
   };
   
@@ -49,7 +49,7 @@ controllers.controller('PlannerCtrl', ['$scope','$http','plan',
 			alert('error! ' + response.status);
 		}
 		
-		var url ='plans/' + $scope.plan.planId + '/updateNode';
+		var url ='requirements/' + $scope.plan.planId + '/updateNode';
 		$http.put(url, $scope.nodeCurrent).then(success, error);
  }
   
@@ -60,8 +60,8 @@ controllers.controller('PlannerCtrl', ['$scope','$http','plan',
 		var error = function(response) {
 			alert('error! ' + response.status);
 		}
-		//"/plans/{planId}/updateNode"
-		var url ='plans/' + $scope.plan.planId + '/' + node.nodeId + '/' + direction;
+		//"/requirements/{planId}/updateNode"
+		var url ='requirements/' + $scope.plan.planId + '/' + node.nodeId + '/' + direction;
 		$http.put(url, {}).then(success, error);
  }
  

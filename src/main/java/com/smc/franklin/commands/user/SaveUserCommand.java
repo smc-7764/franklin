@@ -57,6 +57,7 @@ public class SaveUserCommand {
 		}
 		User exists = userRepository.findByUserName(user.getUserName());
 		
+		user.setLastChanged(new Date(System.currentTimeMillis()));
 		if ( user.getId() == null ) {
 			//create flow
 			if ( exists == null) {
@@ -79,6 +80,7 @@ public class SaveUserCommand {
 			exists.setLastChanged(new Date(System.currentTimeMillis()));
 			exists.setLastName(user.getUserName());
 			exists.setUserName(user.getUserName());
+			exists.setScreenName(user.getScreenName());
 			responseToken.setPayload(userRepository.save(exists));
 		}
 

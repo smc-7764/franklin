@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 /**
  * 
  * @author chq-seanc
@@ -93,6 +95,26 @@ public class ResponseToken<T> {
 	 */
 	public void setSummaries(List<String> summaries) {
 		this.summaries = summaries;
+	}
+	
+	@JsonIgnore
+	public String printToken() {
+
+		if (!messages.isEmpty()) {
+			StringBuilder builder = null;
+			for (ResponseMessage message : messages) {
+				if (builder == null) {
+					builder = new StringBuilder(message.getMessage());
+				} else {
+					builder.append(";\n" + message.getMessage());
+				}
+			}
+			return builder.toString();
+		} else {
+			return "";// (sigh) no reason
+		}
+	
+		
 	}
 
 }

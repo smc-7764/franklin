@@ -1,8 +1,7 @@
-controllers.controller('LoginCtrl', [ '$scope', '$http', '$location','userModel',
-function($scope, $http, $location, userModel) {
-	$scope.userModel = userModel;
-	$scope.model = {
-	};
+controllers.controller('LoginCtrl', [ '$scope', '$http', '$location','userFactory',
+function($scope, $http, $location, userFactory) {
+	$scope.userFactory = userFactory;
+
 	$scope.register = function() {
 		$location.path('user/create');
 	}
@@ -10,7 +9,7 @@ function($scope, $http, $location, userModel) {
 	$scope.login = function() {
 		var success = function(response) {
 			if ( response.data.severity == 'SUCCESS') {
-				$scope.userModel.update(response.data.payload);
+				$scope.userFactory.update(response.data.payload);
 				$location.path('landing');
 			} else {
 				err($scope,response.data.summaries);
@@ -27,10 +26,8 @@ franklin.directive('ngEnter', function () {
     return function (scope, element, attrs) {
         element.bind("keypress", function (event) {
             if(event.which === 13) {
-            	if ( scope.model.account && scope.model.credential ) {
-            		event.preventDefault();
-            		scope.login(); 
-            	}
+        		event.preventDefault();
+        		scope.login(); 
             }
         });
     };

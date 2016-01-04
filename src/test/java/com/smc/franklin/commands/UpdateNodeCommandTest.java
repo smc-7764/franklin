@@ -1,5 +1,7 @@
 package com.smc.franklin.commands;
 
+import static org.mockito.Mockito.when;
+
 import java.util.UUID;
 
 import org.junit.Assert;
@@ -14,8 +16,11 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import com.smc.franklin.dao.Entry;
 import com.smc.franklin.dao.Requirement;
 import com.smc.franklin.dao.enumeration.EntryStatus;
-import com.smc.franklin.dao.repository.PlanRepository;
+import com.smc.franklin.dao.repository.RequirementRepository;
+import com.smc.franklin.dao.repository.UserRepository;
+import com.smc.franklin.response.ResponseToken;
 import com.smc.franklin.view.PlannerNode;
+import com.smc.franklin.view.UserModel;
 
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -26,18 +31,22 @@ public class UpdateNodeCommandTest {
 	
 	@Autowired 
 	@ReplaceWithMock 
-	private PlanRepository planRepository;
+	private RequirementRepository requirementRepository;
+	
+	@Autowired 
+	@ReplaceWithMock 
+	private UserRepository userRepository;
 	
 	@Autowired private UpdateNodeCommand updateCommand;
 	
 	@Test
 	public void testPlan() {
-		Requirement plan = new Requirement();
-		plan.setId(UUID.randomUUID().toString());
+		Requirement requirement = new Requirement();
+		requirement.setId(UUID.randomUUID().toString());
 		String nodeId = UUID.randomUUID().toString();
 		Entry entry = new Entry();
 		entry.setId(nodeId);
-		plan.getEntries().add(entry);
+		requirement.getEntries().add(entry);
 		
 		PlannerNode view = new PlannerNode();
 		view.setNodeId(nodeId);
@@ -47,8 +56,15 @@ public class UpdateNodeCommandTest {
 		view.setRelease("1");
 		view.setSummary("A SUMMARY");
 		
-		updateCommand.execute(plan, view);
-		Entry washed = plan.getEntries().get(0);
+		final String updatorId = "user-123";
+		UserModel testModel = new UserModel();
+		testModel.setId(updatorId);
+		
+		when(userRepository.findModelById(updatorId) ).thenReturn(testModel);
+		
+		ResponseToken<Requirement> responseToken = updateCommand.execute(requirement, view,updatorId );
+		Assert.assertTrue(responseToken.printToken(), responseToken.isSuccessful());
+		Entry washed = requirement.getEntries().get(0);
 		
 		Assert.assertEquals(view.getDescription(), washed.getDescription());
 		Assert.assertEquals(view.getRelease(), washed.getRelease());

@@ -13,6 +13,7 @@ import com.smc.franklin.dao.User;
 import com.smc.franklin.response.ResponseMessage;
 import com.smc.franklin.response.ResponseSeverity;
 import com.smc.franklin.response.ResponseToken;
+import com.smc.franklin.view.UserModel;
 
 // @formatter:off
 /**
@@ -32,7 +33,7 @@ public class UserController {
 	 * @return the plan with the new entry
 	 */
 	@RequestMapping(value = "/login", method = RequestMethod.POST, headers="Accept=application/json", produces={"application/json"})
-	public ResponseToken<User> login(@RequestParam("account") String account, @RequestParam("credential") String credential) {
+	public ResponseToken<UserModel> login(@RequestParam("account") String account, @RequestParam("credential") String credential) {
 		return loginCommand.execute(account, credential);
 	}
 	

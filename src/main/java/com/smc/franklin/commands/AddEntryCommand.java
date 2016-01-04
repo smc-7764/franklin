@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 import com.smc.franklin.dao.Entry;
 import com.smc.franklin.dao.Requirement;
 import com.smc.franklin.dao.enumeration.EntryStatus;
-import com.smc.franklin.dao.repository.PlanRepository;
+import com.smc.franklin.dao.repository.RequirementRepository;
 
 /**
  * I add an entry after its predecessor
@@ -19,7 +19,7 @@ import com.smc.franklin.dao.repository.PlanRepository;
 @Component
 public class AddEntryCommand {
 
-	@Autowired private PlanRepository planRepository;
+	@Autowired private RequirementRepository planRepository;
 	
 	/**
 	 * 
