@@ -1,0 +1,46 @@
+<style>
+	.login {
+		width:60%;
+	}
+	.login .welcome {
+		margin-bottom:20px;
+	}
+	.login label {
+		display:block;
+	}
+</style> 
+<div class="alert {{response.hint}}" ng-if="response != null">
+	<a class="close" ng-click="purgeResponse()">X</a> {{response.summary}}
+</div>
+<div class="container-fluid form-group login" >
+		<div class="row welcome" >
+			<span class="col-sm-8 col-md-8 col-lg-8" >
+				Welcome to Plannation!<br/>
+				<span style="font-size:8pt">
+				12% of a plan is better than 11% of a plan 
+				<div style="margin-left:150px;font-style:italic">- Guardians of the Galaxy</div>
+				</span>
+			</span>
+		</div>
+		
+		<div class="row">
+			<div class="col-sm-4 col-md-4 col-lg-4">
+			<label>User Name</label>
+			<input class="form-control" type="text" ng-model="model.account"></input>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-4 col-md-4 col-lg-4">
+			<label>Password</label>
+			<input ng-enter  class="form-control" type="text" ng-model="model.credential"></input>
+			</div>
+		</div>
+		<div class="row" style="margin-top:10px;">
+		<div class="col-sm-2 col-md-2 col-lg-2">
+			<a ng-click="register()">Register</a>
+		</div>
+		<div class="col-sm-2 col-md-2 col-lg-2">
+			<button class="btn btn-primary form-control" ng-click="login()">Login</button>
+		</div>
+		</div>
+</div>

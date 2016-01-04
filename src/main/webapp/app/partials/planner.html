@@ -1,0 +1,172 @@
+<style>
+.section {
+	padding: 10px 20px 20px 20px;
+	/*
+	font-size: 9pt;
+	margin-top: -1px;
+	*/
+	margin-right: 10px;
+	border:1px solid #ddd;
+	min-height:350px;
+	overflow:auto;
+}
+
+.checkbox {
+	padding-left: 10px;
+	position: relative;
+	text-align: bottom;
+	position: relative;
+	display:inline-block;
+}
+
+.checkbox input[type="checkbox"] {
+	margin-top: 1px;
+	padding-bottom: 10px;
+	padding-left: 10px;
+}
+
+.descriptor {
+	font-size:80%;
+}
+
+.descriptor div {
+	display:block;
+	margin-bottom:10px;
+}
+.descriptor label {
+	margin-bottom:0px;
+	display:block;
+}
+
+/* hack (WIP) - default nab tabs borders all the way across*/
+.nav-tabs {
+    border-bottom: 0px;
+}
+.cp {
+	cursor:pointer;
+}
+</style>
+<div class="container-fluid" style="width: 50%; float: left;">
+	<div class="row">
+		<span class="col-sm-12 col-md-12 col-lg-12">
+			<h3>
+				{{plan.name}} 
+				<span class="glyphicon glyphicon-plus" 
+					title="Add Entry" style="float: right" ng-click="addEntry(-1)"></span>
+			</h3>
+		</span>
+	</div>
+	<div ng-repeat="node in plan.nodes"
+		class="row col-sm-12 col-md-12 col-lg-12">
+		<div class="col-sm-9 col-md-9 col-lg-9">
+			<a ng-click="action(node, 'view')" ng-if="nodeCurrent.nodeId != node.nodeId"> {{node.coordinate}} {{node.summary}} </a>	
+			<span ng-if="nodeCurrent.nodeId == node.nodeId"> {{node.coordinate}} {{node.summary}} </span>	
+		</div>
+		<div class="col-sm-3 col-md-3 col-lg-3" >
+		<span class="glyphicon glyphicon-plus cp" style="margin-right:5px"
+					ng-if="toggler.action != 'move'"
+					title="Add Entry" ng-click="addEntry(node.nodeId)"></span>
+		<span class="glyphicon glyphicon-eye-open cp" style="margin-right:5px;"
+				ng-click="action(node, 'view')" ng-if="toggler.id != node.nodeId"></span>
+		<span class="glyphicon glyphicon-eye-close" ng-click="resetToggler()"
+				style="margin-right:5px"
+				ng-if="toggler.id == node.nodeId && toggler.action != 'move'"></span> 
+		<span class="glyphicon glyphicon-move cp" 
+				ng-click="action(node, 'move')" ng-if="toggler.id != node.nodeId"></span>
+		<span class="glyphicon glyphicon-move"
+				ng-if="toggler.id == node.nodeId && toggler.action != 'move' "
+				style="opacity: 0.4;"></span> 
+				<span ng-if="toggler.id == node.nodeId && toggler.action == 'move'">
+				<span class="glyphicon glyphicon-arrow-left cp" ng-click="move(node, 'PROMOTE')" ng-if="node.directions.indexOf('PROMOTE') > -1"></span> 
+				<span class="glyphicon glyphicon-arrow-left" ng-if="node.directions.indexOf('PROMOTE') == -1" style="opacity:0.4"></span>
+				<span class="glyphicon glyphicon-arrow-up cp" ng-click="move(node, 'UP')" ng-if="node.directions.indexOf('UP') > -1"></span> 
+				<span class="glyphicon glyphicon-arrow-up" ng-if="node.directions.indexOf('UP') == -1" style="opacity:0.4"></span> 
+				<span class="glyphicon glyphicon-arrow-down cp" ng-click="move(node, 'DOWN')" ng-if="node.directions.indexOf('DOWN') > -1"></span> 
+				<span class="glyphicon glyphicon-arrow-down" ng-if="node.directions.indexOf('DOWN') == -1" style="opacity:0.4"></span>
+				<span class="glyphicon glyphicon-arrow-right cp" ng-click="move(node, 'DEMOTE')" ng-if="node.directions.indexOf('DEMOTE') > -1"></span> 
+				<span class="glyphicon glyphicon-arrow-right" ng-if="node.directions.indexOf('DEMOTE') == -1" style="opacity:0.4"></span>
+				<span ng-click="resetToggler()" class="glyphicon glyphicon-retweet cp"></span>
+			</span>
+		</div>
+		<div class="row descriptor" ng-if="(toggler.action == 'view' || toggler.action == 'edit') && nodeCurrent.nodeId == node.nodeId">
+		
+		<div class="col-sm-12 col-md-12 col-lg-12">
+				<ul class="nav nav-tabs">
+					<li ng-class="{'active' : tabModel.descriptor }"><a
+						ng-click="toTab('descriptor')">Requirement</a></li>
+					<li ng-class="{'active' : tabModel.comments}"><a
+						ng-click="toTab('comments')">Comments</a></li>
+				</ul>
+				<div class="form-group section" ng-show="tabModel.descriptor">
+					<div class="row">
+						<div class="col-sm-6"> 
+						<label>Identifier</label>
+							{{nodeCurrent.nodeId}}
+						</div> 
+						<div class="col-sm-4"> 
+						<label>Coordinate</label>
+							{{nodeCurrent.coordinate}}
+						</div>
+						<div class="col-sm-2"> 
+						<span ng-show="toggler.action == 'edit'" ng-click="toggler.action = 'view'">View</span>
+						<span ng-show="toggler.action == 'view'" ng-click="toggler.action = 'edit'">Edit</span>
+						</div>						
+					</div>
+					<div class="row col-sm-12 col-md-12 col-lg-12">
+						<label for="summary">Summary</label> 
+						<div ng-if="toggler.action == 'view'">{{nodeCurrent.summary}}</div>
+						<input type="text" ng-if="toggler.action == 'edit'"
+							class="form-control" ng-model="nodeCurrent.summary" id="summary"></input>
+					</div>
+					<div class="row">
+						<span class="col-sm-4 col-md-4 col-lg-4">
+							<label for="release">Release</label> 
+							<div ng-if="toggler.action == 'view'">{{nodeCurrent.release}}</div>
+							<select class="form-control" ng-if="toggler.action == 'edit'"
+								id="release" ng-model="nodeCurrent.release">
+									<option>1</option>
+									<option>2</option>
+									<option>3</option>
+									<option>4</option>
+									<option>X</option>
+							</select>
+						</span> 
+						<span class="col-sm-8 col-md-8 col-lg-8"> 
+						<label for="status">Status</label> 
+						<div ng-if="toggler.action == 'view'">{{nodeCurrent.status}}</div>
+						<select class="form-control" ng-if="toggler.action == 'edit'"
+							id="status" ng-model="nodeCurrent.status">
+								<option>DRAFT</option>
+								<option>IN_PROGRESS</option>
+								<option>PENDING_REVIEW</option>
+								<option>CANCELLED</option>
+								<option>COMPLETED</option>
+								<option>RETRACTED</option>
+						</select>
+						</span>
+					</div>
+					<div class="row">
+						<span class="col-sm-12 col-md-12 col-lg-12">
+						<label for="description">Description</label>
+						<div ng-if="toggler.action == 'view'">{{nodeCurrent.description}}</div>
+						<textarea ng-if="toggler.action == 'edit'" 
+							ng-model="nodeCurrent.description"
+							class="form-control" rows="5" id="description">{{nodeCurrent.description}}</textarea>
+						</span>
+					</div>
+					<div class="row col-sm-12 col-md-12 col-lg-12" style="margin-top:10px">
+					<span class="col-sm-10 col-md-10 col-lg-10" >
+						<label class="checkbox">
+						<input type="checkbox"	ng-model="qaVerified">QA Verified</label>
+					</span>
+					<span class="col-sm-2 col-md-2 col-lg-2" >
+					 <button  ng-if="toggler.action == 'edit'" class="btn btn-primary" ng-click="updateNode()"
+							type="button">Apply</button>
+					</span>
+					</div>
+				</div>
+				<div class="section" ng-show="tabModel.comments">COMMENTS</div>
+			</div>
+		</div>
+
+	</div>

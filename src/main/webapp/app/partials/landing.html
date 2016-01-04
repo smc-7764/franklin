@@ -1,0 +1,43 @@
+<div class="container-fluid">
+	<div class="row col-md-10">
+		<h3>{{landing}}</h3>
+		Create a plan <input ng-model="creator.name"></input>
+		<button type="submit" class="btn btn-primary" ng-submit="createPlan()">Create</button>
+	</div>
+	
+	<div class="row col-md-10">
+		<div class="col-md-3">
+			<table st-safe-src="rowCollection" st-table="displayCollection"
+				class="table table-striped smart lean" ng-if="displayCollection && displayCollection.length > 1">
+				<thead>
+					<tr>
+						<th st-sort="name" st-sort-default="name"><span>Name</span></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="plan in displayCollection track by $index">
+						<td ng-click="viewPlan(plan.id)">{{plan.name}}</td>
+					</tr>
+				</tbody>
+				<tfoot>
+					<tr>
+						<td colspan="1" class="text-center">
+							<div st-pagination="" st-items-by-page="5" st-displayed-pages="3"></div>
+						</td>
+					</tr>
+				</tfoot>
+			</table>
+			<table class="table table-striped" ng-if="displayCollection && displayCollection.length == 1">
+					<thead>
+					<tr>
+						<th><span>Name</span></th>
+					</tr>
+					</thead>
+					<tbody>
+						<tr><td>displayCollection.name</td></tr>
+					</tbody>
+			</table>
+		</div>
+			<a href="#/plans">Plans</a> <a href="#/reports">Reports</a><br />
+	</div>
+</div>

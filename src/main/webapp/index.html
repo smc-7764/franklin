@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en" ng-app="franklin">
+<head>
+<meta charset="utf-8">
+<base href="/">
+<title>Planner</title>
+
+<link rel="stylesheet"
+	href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="app/css/app.css">
+
+<script type="text/javascript"
+	src="bower_components/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript"
+	src="bower_components/tinymce-dist/tinymce.js"></script>
+
+<script type="text/javascript"
+	src="bower_components/angular/angular.min.js"></script>
+<script src="bower_components/angular-route/angular-route.js"></script>
+<script type="text/javascript"
+	src="bower_components/angular-ui-tinymce/src/tinymce.js"></script>
+<script type="text/javascript"
+	src="bower_components/angular-resource/angular-resource.js"></script>
+<script type="text/javascript"
+	src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+<script type="text/javascript"
+	src="bower_components/angular-smart-table/dist/smart-table.js"></script>
+<script type="text/javascript" src="bower_components/sockjs/sockjs.js"></script>
+<script type="text/javascript"
+	src="bower_components/stomp-websocket/lib/stomp.min.js"></script>
+<script type="text/javascript"
+	src="bower_components/ng-stomp/ng-stomp.min.js"></script>
+
+<script type="text/javascript" src="app/app.js"></script>
+<script src="app/js/controllers.js"></script>
+<script src="app/js/login.js"></script>
+<script src="app/js/landing.js"></script>
+<script src="app/js/planner.js"></script>
+<script src="app/js/report.js"></script>
+<script src="app/js/user.js"></script>
+
+</head>
+<body>
+<style>
+.runner {
+	width: 100%;
+	height: 50px;
+}
+
+.neon {
+    color: #0000FF;        
+    text-shadow: 0 0 10px #ffffff, 0 0 20px #ffffff, 0 0 30px #ffffff, 0 0 40px #668cd9, 120px 0 70px #668cd9, 140px 0 80px #668cd9;
+
+	font-size: 14pt;
+	position: absolute;
+	font-weight: bold;
+	top: 25px;
+	left:15px;	
+	font-style:italic;
+	opacity: 0.5;
+}
+.plan-image {
+	padding:3px;
+	height:70px;
+	width:250px;
+	background-image: url('app/images/planC.jpg');
+	background-repeat: no-repeat;	
+	opacity:0.6px;
+}
+</style>
+<div class="runner" ng-controller="AppCtrl">
+
+	<div style="position:absolute;right:110px; top:10px;" ng-if="userModel.authenticated()">
+        <ul class="nav navbar-nav">
+ 	        <li>
+	         <a ng-if="dd" ng-click="toggle()" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" >{{userModel.firstName}} {{userModel.lastName}}  <span class="dropup"><span class="caret"></span></span></a>
+	         <a ng-if="!dd" ng-click="toggle()" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" >{{userModel.firstName}} {{userModel.lastName}} <span class="caret"></span></a>         
+	         <ul ng-if="dd" class="dropdown-menu" style="display:block;max-width:120px;">
+	           <li><a ng-click="update()">Update Profile</a></li>
+	           <li role="separator" class="divider"></li>
+	           <li><a ng-click="logout()">Logout</a></li>
+	         </ul>
+	         </li>
+         </ul>
+	</div>
+	<div class="neon" ng-click="userModel.home()">PLANNATION</div>
+	<div class="plan-image"></div>
+</div>
+<div ng-view></div>
+</body>
+</html>

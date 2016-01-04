@@ -1,0 +1,35 @@
+{
+  "name": "sean_",
+  "description": "",
+  "main": "",
+  "moduleType": [
+    "node"
+  ],
+  "authors": [
+    "seanc"
+  ],
+  "license": "MIT",
+  "homepage": "index.html",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-ui-tinymce": "~0.0.11",
+    "bootstrap": "~3.3.6",
+    "angular-smart-table": "~2.1.6",
+    "angular-route": "1.4.8",
+    "angular": "~1.4.8",
+    "angular-sanitize": "~1.4.8",
+    "angular-resource": "~1.4.8",
+    "sockjs": "~0.3.4",
+    "ng-stomp": "~0.0.2",
+    "angular-new-router": "~0.5.3",
+    "angular-mocks": "1.4.x",
+    "jquery": "~2.1.1",
+    "smart-table": "angular-smart-table#1.4.8"
+  }
+}

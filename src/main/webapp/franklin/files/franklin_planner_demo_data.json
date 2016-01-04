@@ -1,0 +1,921 @@
+{
+	"ediSystemDestin": null,
+	"receivedCustomerOrder": 
+	{
+		"buyerContactName": "John Smith",
+		"category": "Casual Attire",
+		"customerOrderStatus": "NEW",
+		"customerCurrencyCode": "USD",
+		"departmentCode": "5b",
+		"departmentName": "Women's",
+		"divisionCode": "6_4",
+		"divisionName": "Shoes",
+		"incoterm": "CFR",
+		"issueDate": 
+		{
+			"offset": null,
+			"timestamp": 1432364400000,
+			"asReceived": "Sat May 23 00:00:00 PDT 2015",
+			"date": "2015-05-23T07:00:00.000+0000",
+			"timeZone": "Z"
+		},
+
+		"notes": "Please ship all items on same shipment",
+		"openDate": 
+			{
+				"offset": null,
+				"timestamp": 1431154800000,
+				"asReceived": "05/09/2015",
+				"date": "2015-05-09T07:00:00.000+0000",
+				"timeZone": "GMT"
+			},
+		"closeDate": 
+				{
+					"offset": null,
+					"timestamp": 1432018800000,
+					"asReceived": "05/19/2015",
+					"date": "2015-05-19T07:00:00.000+0000",
+					"timeZone": "GMT"
+				},			
+		"orderNumber": "123ABC",
+		"orderQualifier": "PURCHASE_ORDER",
+		"paymentTerms": "15 DAYS NET",
+		"plantCode": "123",
+		"plantName": "Kent",
+		"releaseNumber": "1",
+		"salesOrderNumber": "ABC-123",
+		"transportationMode": "AIR",
+		"vendorOrderNumber": "987564",
+		"warehouseCode": "12345",
+		"warehouseName": "Facility #1",
+		"ediSystemDestin": null,
+		"ediCorrelationId": null,
+		"portGroup": null,
+		"trackingId": null,
+		"format": null,
+		"receivedTimestamp": 0,
+		"sequence": 0,
+		"revisionAction": null,
+		"items": 
+		[
+			{
+				"brand": "Levi 530",
+				"category": "Casual Attire",			
+				"color": "blue",
+				"containerCount": 1,
+				"containerSize": "40'",
+				"customerCurrencyCode": "YEN",
+				"customerItemStatus": "NEW",
+				"dangerousGoodsFlag": false,
+				"departmentCode": "47C",
+				"departmentName": "Mens",
+				"dimensionDescription": "50x50x50",
+				"dimensionUOM": "MR",
+				"divisionCode": "S_7",
+				"divisionName": "Denim",
+				"eanNumber": "298347349857",
+				"extendedPrice": 101,
+				"fishAndWildlifeFlag": false,
+				"height": 50,
+				"innerPackGrossWeight": 50.005,
+				"innerPackPerPackQuantity": 4,
+				"innerPackQuantity": 8,
+				"innerPackQuantityUOM": "K",
+				"isoContainerSize": "R1",
+				"itemDescription": "Ladies Skinny Jeans",
+				"itemGrossVolume": 50.005,
+				"itemGrossWeight": 500.005,
+				"itemNetWeight": 40.008,
+				"itemNumber": "BSKUA3E3G",
+				"itemQuantity": 24,
+				"itemQuantityUOM": "BXS",
+				"itemsPerInnerPack": 5,
+				"itemsPerPack": 4,
+				"itemVolumeUOM": "CF",
+				"itemWeightUOM": "L",
+				"length": 50,
+				"lineNumber": "001001",
+				"materialClass": "Bamboo Cotton",
+				"model": "T4",
+				"notes": "Please ship all items on same shipment",			
+				"packGrossWeight": 50.005,
+				"packQuantity": 2,
+				"packQuantityUOM": null,
+				"plantCode": "123",
+				"plantName": "Kent",
+				"prepackFlag": true,
+				"prepackQuantity": null,
+				"product": "Jeans",
+				"requestedDeliveryDate": 
+				{
+					"offset": null,
+					"timestamp": 1431586800000,
+					"asReceived": "05/14/2015",
+					"date": "2015-05-14T07:00:00.000+0000",
+					"timeZone": "GMT"
+				},
+
+				"season": "Winter",
+				"size": "XXL",
+				"style": "Boot Cut",
+				"subLineNumber": "1.5",
+				"transportMode": null,
+				"transportModeDescription": "AIR EXPRESS 4 DAYS",
+				"unitPrice": 1,
+				"upcNumber": "2938742398572",
+				"vendorItemNumber": "ABC098",
+				"warehouseCode": "12345",
+				"warehouseName": "Facility #1",
+				"width": 50,
+				"partners": 
+				[
+					{
+						"tradingPartnerCode": null,
+						"addressLine1": "1223 Maple St. Dr",
+						"addressLine2": null,
+						"addressLine3": null,
+						"addressLine4": null,
+						"addressLine5": null,
+						"addressLine6": null,
+						"addressLine7": null,
+						"cityName": "Seattle",
+						"countryCode": "USA",
+						"countryName": "United States",
+						"countrySubCode": "WA",
+						"name": "Acid Wash Inc.,",
+						"postalCode": "98110",
+						"stateProvinceCode": "WA",
+						"stateProvinceName": "Washington",
+						"tradingPartnerGCI": null,
+						"tradingPartnerType": "AGENT",
+						"tradingPartnerValue": null,
+						"tradingPartnerValueFormat": null,
+						"contacts": 
+						[
+							
+						]
+					}
+				],
+
+				"references": 
+				[
+					{
+						"code": "FSS1",
+						"value": "Fritz n Spark",
+						"type": null,
+						"mappedLabel": "Vendor Plant Name",
+						"legacyReference": "CUST_DATA_1",
+						"dataLabel": null
+					}
+				],
+
+				"locationPorts": 
+				[
+					{
+						"locationPortType": "PORT_OF_DESTINATION",
+						"portName": "Seattle",
+						"countryCode": "US",
+						"locationCode": "SEA"
+					},
+
+					{
+						"locationPortType": "PORT_OF_ORIGIN",
+						"portName": "EMAIR - IRELAND AND UNITED KINGDOM",
+						"countryCode": "IRL",
+						"locationCode": "SNN"
+					}
+				],
+
+				"prePackDetails": 
+				[
+					{
+						"prepackLineNumber": "000100001",
+						"prepackNumber": "1610631039",
+						"prepackQuantity": null,
+						"prepackSize": "XL",
+						"prepackUPC": "887921601796",
+						"customsDetails": 
+						[
+							{
+								"antidumpingCaseNumber": "A-570-858",
+								"antidumpingDutyRate": "Customs/IP to define",
+								"antidumpingInformationOnly": "Customs/IP to define",
+								"assistAmount": "Customs/IP to define",
+								"assistPercentage": "Customs/IP to define",
+								"bindingRulingNumber": "H109699",
+								"bindingRulingNumberType": "Customs/IP to define",
+								"caseNumberBeginDate": 
+								{
+									"offset": null,
+									"timestamp": 1431586800000,
+									"asReceived": "05/14/2015",
+									"date": "2015-05-14T07:00:00.000+0000",
+									"timeZone": "GMT"
+								},
+
+								"caseNumberEndDate": 
+								{
+									"offset": null,
+									"timestamp": 1432191600000,
+									"asReceived": "05/21/2015",
+									"date": "2015-05-21T07:00:00.000+0000",
+									"timeZone": "GMT"
+								},
+
+								"countervailingDutyCaseNumber": "C-357-812",
+								"countervailingDutyInformationOnly": "Customs/IP to define",
+								"countervailingDutyRate": "Customs/IP to define",
+								"dutiableRoyaltyAmount": "287",
+								"dutiableRoyaltyPercentage": "28.7%",
+								"dutyType": "ANTIDUMPING",
+								"hsNumber": "6105202010",
+								"isfCountryCode": "CN",
+								"quotaCategory": null,
+								"tradePreference": "NAFTA",
+								"tradePreferenceBeginDate": 
+								{
+									"offset": null,
+									"timestamp": 1431500400000,
+									"asReceived": "05/13/2015",
+									"date": "2015-05-13T07:00:00.000+0000",
+									"timeZone": "GMT"
+								},
+
+								"tradePreferenceEndDate": 
+								{
+									"offset": null,
+									"timestamp": 1432018800000,
+									"asReceived": "05/19/2015",
+									"date": "2015-05-19T07:00:00.000+0000",
+									"timeZone": "GMT"
+								}
+							}
+						]
+					}
+				],
+
+				"events": 
+				[
+					
+				],
+
+				"customsDetails": 
+				[
+					{
+						"antidumpingCaseNumber": "A-570-858",
+						"antidumpingDutyRate": "Customs/IP to define",
+						"antidumpingInformationOnly": "Customs/IP to define",
+						"assistAmount": "Customs/IP to define",
+						"assistPercentage": "Customs/IP to define",
+						"bindingRulingNumber": "H109699",
+						"bindingRulingNumberType": "Customs/IP to define",
+						"caseNumberBeginDate": 
+						{
+							"offset": null,
+							"timestamp": 1431586800000,
+							"asReceived": "05/14/2015",
+							"date": "2015-05-14T07:00:00.000+0000",
+							"timeZone": "GMT"
+						},
+
+						"caseNumberEndDate": 
+						{
+							"offset": null,
+							"timestamp": 1432191600000,
+							"asReceived": "05/21/2015",
+							"date": "2015-05-21T07:00:00.000+0000",
+							"timeZone": "GMT"
+						},
+
+						"countervailingDutyCaseNumber": "C-357-812",
+						"countervailingDutyInformationOnly": "Customs/IP to define",
+						"countervailingDutyRate": "Customs/IP to define",
+						"dutiableRoyaltyAmount": "287",
+						"dutiableRoyaltyPercentage": "28.7%",
+						"dutyType": "ANTIDUMPING",
+						"hsNumber": "6105202010",
+						"isfCountryCode": "CN",
+						"quotaCategory": null,
+						"tradePreference": "NAFTA",
+						"tradePreferenceBeginDate": 
+						{
+							"offset": null,
+							"timestamp": 1431500400000,
+							"asReceived": "05/13/2015",
+							"date": "2015-05-13T07:00:00.000+0000",
+							"timeZone": "GMT"
+						},
+
+						"tradePreferenceEndDate": 
+						{
+							"offset": null,
+							"timestamp": 1432018800000,
+							"asReceived": "05/19/2015",
+							"date": "2015-05-19T07:00:00.000+0000",
+							"timeZone": "GMT"
+						}
+					}
+				]
+			},
+
+			{
+				"brand": "Levi 530",
+				"category": "Casual Attire",
+				"color": "blue",
+				"containerCount": 2,
+				"containerSize": "40'",
+				"customerCurrencyCode": null,
+				"customerItemStatus": "NEW",
+				"dangerousGoodsFlag": false,
+				"departmentCode": "47C",
+				"departmentName": "Mens",
+				"dimensionDescription": "50x50x50",
+				"dimensionUOM": "MR",
+				"divisionCode": "S_7",
+				"divisionName": "Denim",
+				"eanNumber": "298347349857",
+				"extendedPrice": 101,
+				"fishAndWildlifeFlag": false,
+				"height": 50,
+				"innerPackGrossWeight": 50.005,
+				"innerPackPerPackQuantity": 4,
+				"innerPackQuantity": 8,
+				"innerPackQuantityUOM": "K",
+				"isoContainerSize": "R1",
+				"itemDescription": "Ladies Skinny Jeans",
+				"itemGrossVolume": 50.005,
+				"itemGrossWeight": 500.005,
+				"itemNetWeight": 40.008,
+				"itemNumber": "SKU40Q",
+				"itemQuantity": 24,
+				"itemQuantityUOM": "BXS",
+				"itemsPerInnerPack": 7,
+				"itemsPerPack": 4,
+				"itemVolumeUOM": "CF",
+				"itemWeightUOM": "L",
+				"length": 50,
+				"lineNumber": "001002",
+				"materialClass": "Bamboo Cotton",
+				"model": "T4",
+				"notes": "Please ship all items on same shipment",
+				"packGrossWeight": 50.005,
+				"packQuantity": 2,
+				"packQuantityUOM": null,
+				"plantCode": "123",
+				"plantName": "Kent",
+				"prepackFlag": true,
+				"prepackQuantity": null,
+				"product": "Jeans",
+				"requestedDeliveryDate": 
+				{
+					"offset": null,
+					"timestamp": 1431586800000,
+					"asReceived": "05/14/2015",
+					"date": "2015-05-14T07:00:00.000+0000",
+					"timeZone": "GMT"
+				},
+
+				"season": "Winter",
+				"size": "XXL",
+				"style": "Slim Cut",
+				"subLineNumber": "1.5",
+				"transportMode": null,
+				"transportModeDescription": "AIR EXPRESS 4 DAYS",
+				"unitPrice": 1,
+				"upcNumber": "2938742398572",
+				"vendorItemNumber": "ABC098",
+				"warehouseCode": "12345",
+				"warehouseName": "Facility #1",
+				"width": 50,
+				"partners": 
+				[
+					{
+						"tradingPartnerCode": null,
+						"addressLine1": "1223 Maple St. Dr",
+						"addressLine2": null,
+						"addressLine3": null,
+						"addressLine4": null,
+						"addressLine5": null,
+						"addressLine6": null,
+						"addressLine7": null,
+						"cityName": "Seattle",
+						"countryCode": "USA",
+						"countryName": "United States",
+						"countrySubCode": "WA",
+						"name": "Acid Wash Inc.,",
+						"postalCode": "98110",
+						"stateProvinceCode": "WA",
+						"stateProvinceName": "Washington",
+						"tradingPartnerGCI": null,
+						"tradingPartnerType": "AGENT",
+						"tradingPartnerValue": null,
+						"tradingPartnerValueFormat": null,
+						"contacts": 
+						[
+							
+						]
+					}
+				],
+
+				"references": 
+				[
+					{
+						"code": "FSS2",
+						"value": "Fritz n Spark",
+						"type": null,
+						"mappedLabel": "Vendor Plant Name",
+						"legacyReference": "CUST_DATA_1",
+						"dataLabel": null
+					}
+				],
+
+				"locationPorts": 
+				[
+					{
+						"locationPortType": "PORT_OF_DESTINATION",
+						"portName": "Seattle",
+						"countryCode": "US",
+						"locationCode": "SEA"
+					},
+
+					{
+						"locationPortType": "PORT_OF_ORIGIN",
+						"portName": "Hong Kong",
+						"countryCode": "HK",
+						"locationCode": "HKG"
+					}
+				],
+
+				"prePackDetails": 
+				[
+					{
+						"prepackLineNumber": "000100001",
+						"prepackNumber": "1610631039",
+						"prepackQuantity": null,
+						"prepackSize": "XL",
+						"prepackUPC": "887921601796",
+						"customsDetails": 
+						[
+							{
+								"antidumpingCaseNumber": "A-570-858",
+								"antidumpingDutyRate": "Customs/IP to define",
+								"antidumpingInformationOnly": "Customs/IP to define",
+								"assistAmount": "Customs/IP to define",
+								"assistPercentage": "Customs/IP to define",
+								"bindingRulingNumber": "H109699",
+								"bindingRulingNumberType": "Customs/IP to define",
+								"caseNumberBeginDate": 
+								{
+									"offset": null,
+									"timestamp": 1431586800000,
+									"asReceived": "05/14/2015",
+									"date": "2015-05-14T07:00:00.000+0000",
+									"timeZone": "GMT"
+								},
+
+								"caseNumberEndDate": 
+								{
+									"offset": null,
+									"timestamp": 1432191600000,
+									"asReceived": "05/21/2015",
+									"date": "2015-05-21T07:00:00.000+0000",
+									"timeZone": "GMT"
+								},
+
+								"countervailingDutyCaseNumber": "C-357-812",
+								"countervailingDutyInformationOnly": "Customs/IP to define",
+								"countervailingDutyRate": "Customs/IP to define",
+								"dutiableRoyaltyAmount": "287",
+								"dutiableRoyaltyPercentage": "28.7%",
+								"dutyType": "ANTIDUMPING",
+								"hsNumber": "6105202010",
+								"isfCountryCode": "CN",
+								"quotaCategory": null,
+								"tradePreference": "NAFTA",
+								"tradePreferenceBeginDate": 
+								{
+									"offset": null,
+									"timestamp": 1431500400000,
+									"asReceived": "05/13/2015",
+									"date": "2015-05-13T07:00:00.000+0000",
+									"timeZone": "GMT"
+								},
+
+								"tradePreferenceEndDate": 
+								{
+									"offset": null,
+									"timestamp": 1432018800000,
+									"asReceived": "05/19/2015",
+									"date": "2015-05-19T07:00:00.000+0000",
+									"timeZone": "GMT"
+								}
+							}
+						]
+					}
+				],
+
+				"events": 
+				[
+					
+				],
+
+				"customsDetails": 
+				[
+					{
+						"antidumpingCaseNumber": "A-570-858",
+						"antidumpingDutyRate": "Customs/IP to define",
+						"antidumpingInformationOnly": "Customs/IP to define",
+						"assistAmount": "Customs/IP to define",
+						"assistPercentage": "Customs/IP to define",
+						"bindingRulingNumber": "H109699",
+						"bindingRulingNumberType": "Customs/IP to define",
+						"caseNumberBeginDate": 
+						{
+							"offset": null,
+							"timestamp": 1431586800000,
+							"asReceived": "05/14/2015",
+							"date": "2015-05-14T07:00:00.000+0000",
+							"timeZone": "GMT"
+						},
+
+						"caseNumberEndDate": 
+						{
+							"offset": null,
+							"timestamp": 1432191600000,
+							"asReceived": "05/21/2015",
+							"date": "2015-05-21T07:00:00.000+0000",
+							"timeZone": "GMT"
+						},
+
+						"countervailingDutyCaseNumber": "C-357-812",
+						"countervailingDutyInformationOnly": "Customs/IP to define",
+						"countervailingDutyRate": "Customs/IP to define",
+						"dutiableRoyaltyAmount": "287",
+						"dutiableRoyaltyPercentage": "28.7%",
+						"dutyType": "ANTIDUMPING",
+						"hsNumber": "6105202010",
+						"isfCountryCode": "CN",
+						"quotaCategory": null,
+						"tradePreference": "NAFTA",
+						"tradePreferenceBeginDate": 
+						{
+							"offset": null,
+							"timestamp": 1431500400000,
+							"asReceived": "05/13/2015",
+							"date": "2015-05-13T07:00:00.000+0000",
+							"timeZone": "GMT"
+						},
+
+						"tradePreferenceEndDate": 
+						{
+							"offset": null,
+							"timestamp": 1432018800000,
+							"asReceived": "05/19/2015",
+							"date": "2015-05-19T07:00:00.000+0000",
+							"timeZone": "GMT"
+						}
+					}
+				]
+			},
+
+			{
+				"brand": "Levi 530",
+				"category": "Casual Attire",
+				"closeDate": 
+				{
+					"offset": null,
+					"timestamp": 1432018800000,
+					"asReceived": "05/19/2015",
+					"date": "2015-05-19T07:00:00.000+0000",
+					"timeZone": "GMT"
+				},
+
+				"color": "blue",
+				"containerCount": 7,
+				"containerSize": "40'",
+				"customerCurrencyCode": "YEN",
+				"customerItemStatus": "NEW",
+				"dangerousGoodsFlag": false,
+				"departmentCode": "47C",
+				"departmentName": "Mens",
+				"dimensionDescription": "50x50x50",
+				"dimensionUOM": "MR",
+				"divisionCode": "S_7",
+				"divisionName": "Denim",
+				"eanNumber": "298347349857",
+				"extendedPrice": 101,
+				"fishAndWildlifeFlag": false,
+				"height": 50,
+				"innerPackGrossWeight": 50.005,
+				"innerPackPerPackQuantity": 4,
+				"innerPackQuantity": 8,
+				"innerPackQuantityUOM": "K",
+				"isoContainerSize": "R1",
+				"itemDescription": "Ladies Skinny Jeans",
+				"itemGrossVolume": 50.005,
+				"itemGrossWeight": 500.005,
+				"itemNetWeight": 40.008,
+				"itemNumber": "SKU50Q",
+				"itemQuantity": 24,
+				"itemQuantityUOM": "BXS",
+				"itemsPerInnerPack": 2,
+				"itemsPerPack": 4,
+				"itemVolumeUOM": "CF",
+				"itemWeightUOM": "L",
+				"length": 50,
+				"lineNumber": "001003",
+				"materialClass": "Bamboo Cotton",
+				"model": "T4",
+				"notes": "Please ship all items on same shipment",
+				"packGrossWeight": 50.005,
+				"packQuantity": 2,
+				"packQuantityUOM": null,
+				"plantCode": "123",
+				"plantName": "Kent",
+				"prepackFlag": true,
+				"prepackQuantity": null,
+				"product": "Jeans",
+				"requestedDeliveryDate": 
+				{
+					"offset": null,
+					"timestamp": 1431586800000,
+					"asReceived": "05/14/2015",
+					"date": "2015-05-14T07:00:00.000+0000",
+					"timeZone": "GMT"
+				},
+
+				"season": "Winter",
+				"size": "XXL",
+				"style": "Bell Bottom",
+				"subLineNumber": "1.5",
+				"transportMode": null,
+				"transportModeDescription": "AIR EXPRESS 4 DAYS",
+				"unitPrice": 1,
+				"upcNumber": "2938742398572",
+				"vendorItemNumber": "ABC098",
+				"warehouseCode": "12345",
+				"warehouseName": "Facility #1",
+				"width": 50,
+				"partners": 
+				[
+					{
+						"tradingPartnerCode": null,
+						"addressLine1": "1223 Maple St. Dr",
+						"addressLine2": null,
+						"addressLine3": null,
+						"addressLine4": null,
+						"addressLine5": null,
+						"addressLine6": null,
+						"addressLine7": null,
+						"cityName": "Seattle",
+						"countryCode": "USA",
+						"countryName": "United States",
+						"countrySubCode": "WA",
+						"name": "Acid Wash Inc.,",
+						"postalCode": "98110",
+						"stateProvinceCode": "WA",
+						"stateProvinceName": "Washington",
+						"tradingPartnerGCI": null,
+						"tradingPartnerType": "AGENT",
+						"tradingPartnerValue": null,
+						"tradingPartnerValueFormat": null,
+						"contacts": 
+						[
+							
+						]
+					}
+				],
+
+				"references": 
+				[
+					{
+						"code": "FSS3",
+						"value": "Fritz n Spark",
+						"type": null,
+						"mappedLabel": "Vendor Plant Name",
+						"legacyReference": "CUST_DATA_1",
+						"dataLabel": null
+					}
+				],
+
+				"locationPorts": 
+				[
+					{
+						"locationPortType": "PORT_OF_DESTINATION",
+						"portName": "Seattle",
+						"countryCode": "US",
+						"locationCode": "SEA"
+					},
+
+					{
+						"locationPortType": "PORT_OF_ORIGIN",
+						"portName": "Hong Kong",
+						"countryCode": "HK",
+						"locationCode": "HKG"
+					}
+				],
+
+				"prePackDetails": 
+				[
+					{
+						"prepackLineNumber": "000100001",
+						"prepackNumber": "1610631039",
+						"prepackQuantity": null,
+						"prepackSize": "XL",
+						"prepackUPC": "887921601796",
+						"customsDetails": 
+						[
+							{
+								"antidumpingCaseNumber": "A-570-858",
+								"antidumpingDutyRate": "Customs/IP to define",
+								"antidumpingInformationOnly": "Customs/IP to define",
+								"assistAmount": "Customs/IP to define",
+								"assistPercentage": "Customs/IP to define",
+								"bindingRulingNumber": "H109699",
+								"bindingRulingNumberType": "Customs/IP to define",
+								"caseNumberBeginDate": 
+								{
+									"offset": null,
+									"timestamp": 1431586800000,
+									"asReceived": "05/14/2015",
+									"date": "2015-05-14T07:00:00.000+0000",
+									"timeZone": "GMT"
+								},
+
+								"caseNumberEndDate": 
+								{
+									"offset": null,
+									"timestamp": 1432191600000,
+									"asReceived": "05/21/2015",
+									"date": "2015-05-21T07:00:00.000+0000",
+									"timeZone": "GMT"
+								},
+
+								"countervailingDutyCaseNumber": "C-357-812",
+								"countervailingDutyInformationOnly": "Customs/IP to define",
+								"countervailingDutyRate": "Customs/IP to define",
+								"dutiableRoyaltyAmount": "287",
+								"dutiableRoyaltyPercentage": "28.7%",
+								"dutyType": "ANTIDUMPING",
+								"hsNumber": "6105202010",
+								"isfCountryCode": "CN",
+								"quotaCategory": null,
+								"tradePreference": "NAFTA",
+								"tradePreferenceBeginDate": 
+								{
+									"offset": null,
+									"timestamp": 1431500400000,
+									"asReceived": "05/13/2015",
+									"date": "2015-05-13T07:00:00.000+0000",
+									"timeZone": "GMT"
+								},
+
+								"tradePreferenceEndDate": 
+								{
+									"offset": null,
+									"timestamp": 1432018800000,
+									"asReceived": "05/19/2015",
+									"date": "2015-05-19T07:00:00.000+0000",
+									"timeZone": "GMT"
+								}
+							}
+						]
+					}
+				],
+
+				"events": 
+				[
+					
+				],
+
+				"customsDetails": 
+				[
+					{
+						"antidumpingCaseNumber": "A-570-858",
+						"antidumpingDutyRate": "Customs/IP to define",
+						"antidumpingInformationOnly": "Customs/IP to define",
+						"assistAmount": "Customs/IP to define",
+						"assistPercentage": "Customs/IP to define",
+						"bindingRulingNumber": "H109699",
+						"bindingRulingNumberType": "Customs/IP to define",
+						"caseNumberBeginDate": 
+						{
+							"offset": null,
+							"timestamp": 1431586800000,
+							"asReceived": "05/14/2015",
+							"date": "2015-05-14T07:00:00.000+0000",
+							"timeZone": "GMT"
+						},
+
+						"caseNumberEndDate": 
+						{
+							"offset": null,
+							"timestamp": 1432191600000,
+							"asReceived": "05/21/2015",
+							"date": "2015-05-21T07:00:00.000+0000",
+							"timeZone": "GMT"
+						},
+
+						"countervailingDutyCaseNumber": "C-357-812",
+						"countervailingDutyInformationOnly": "Customs/IP to define",
+						"countervailingDutyRate": "Customs/IP to define",
+						"dutiableRoyaltyAmount": "287",
+						"dutiableRoyaltyPercentage": "28.7%",
+						"dutyType": "ANTIDUMPING",
+						"hsNumber": "6105202010",
+						"isfCountryCode": "CN",
+						"quotaCategory": null,
+						"tradePreference": "NAFTA",
+						"tradePreferenceBeginDate": 
+						{
+							"offset": null,
+							"timestamp": 1431500400000,
+							"asReceived": "05/13/2015",
+							"date": "2015-05-13T07:00:00.000+0000",
+							"timeZone": "GMT"
+						},
+
+						"tradePreferenceEndDate": 
+						{
+							"offset": null,
+							"timestamp": 1432018800000,
+							"asReceived": "05/19/2015",
+							"date": "2015-05-19T07:00:00.000+0000",
+							"timeZone": "GMT"
+						}
+					}
+				]
+			}
+		],
+
+		"partners": 
+		[
+			{
+				"tradingPartnerCode": null,
+				"addressLine1": "1223 Maple St. Dr",
+				"addressLine2": null,
+				"addressLine3": null,
+				"addressLine4": null,
+				"addressLine5": null,
+				"addressLine6": null,
+				"addressLine7": null,
+				"cityName": "Seattle",
+				"countryCode": "USA",
+				"countryName": "United States",
+				"countrySubCode": "WA",
+				"name": "Acid Wash Inc.,",
+				"postalCode": "98110",
+				"stateProvinceCode": "WA",
+				"stateProvinceName": "Washington",
+				"tradingPartnerGCI": null,
+				"tradingPartnerType": "AGENT",
+				"tradingPartnerValue": null,
+				"tradingPartnerValueFormat": null,
+				"contacts": 
+				[
+					
+				]
+			}
+		],
+
+		"references": 
+		[
+			{
+				"code": "FSS2",
+				"value": "Fritz n Spark",
+				"type": null,
+				"mappedLabel": "Vendor Plant Name",
+				"legacyReference": "CUST_DATA_3",
+				"dataLabel": null
+			}
+		],
+
+		"locationPorts": 
+		[
+			{
+				"locationPortType": "PORT_OF_DESTINATION",
+				"portName": "Seattle",
+				"countryCode": "US",
+				"locationCode": "SEA"
+			},
+
+			{
+				"locationPortType": "PORT_OF_ORIGIN",
+				"portName": "BEIJING KANG JIE KONG",
+				"countryCode": "CHN",
+				"locationCode": "SHA"
+			}
+		],
+
+		"events": 
+		[
+			
+		]
+	},
+
+	"ediCorrelationId": null,
+	"orderType": "PURCHASE_ORDER",
+	"revisionAction": "REPLACE",
+	"sequence": null,
+	"orderBk": null
+}
